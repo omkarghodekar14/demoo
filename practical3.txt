@@ -1,0 +1,28 @@
+import pandas as pd
+import numpy as np
+df = pd.read_csv('student.csv')
+df
+df.mean()
+df.median()
+df.std()
+df.min()
+df.max()
+np.std(df['marks'])
+group_by_class = df.groupby('class')
+group_by_class.mean()
+group_by_class.describe()
+group_by_class.get_group('TE').describe()
+group_by_age = df.groupby('age')
+group_by_age.groups
+group_by_age.get_group(20).describe()
+df = pd.read_csv('iris.csv')
+df
+df.isnull().sum()
+df.describe()
+df['sepal_width'].describe()
+df.groupby('species').describe()
+species_list = ['Iris-setosa', 'Iris-versicolor', 'Iris-virginica']
+for species in species_list:
+ print(f"\nSummary Statistics for {species}:\n")
+ print(df[df['species'] == species].describe())
+ print("\n" + "-"*50 + "\n")
